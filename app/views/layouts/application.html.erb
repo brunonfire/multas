@@ -14,29 +14,32 @@
   </head>
 
   <body>
-
-  <% unless signed_in? %>
-    <div class="">
-      <%= image_tag "foto_inicio.png" %>
-    </div>
+  <% if signed_in? %>
+    <%= render "layouts/navbar_user" %>
   <% end %>
+<div class="container-fluid supremo-bg-gray">
+  <div class="row d-flex justify-content-around">
 
-  <div>
-    <%= "#{t("general.messages.welcome")}, #{current_user.name.capitalize}!" if user_signed_in? %>
-    <%= "#{t("activerecord.models.company")} #{current_company&.name}." if user_signed_in? %>
+    <% unless signed_in? %>
+      <div class="">
+        <%= image_tag "foto_inicio.png" %>
+      </div>
+    <% end %>
+
+    <div class="col-md-2 d-flex justify-content-center align-items-center">
+      <%= render "layouts/sidebar_menu" if user_signed_in? %>
+    </div>
+
+
+    <div class="col-md-10 ">
+      <%= notice %>
+      <%= alert %>
+      <%= yield %>
+    </div>
+
+
   </div>
-  <div>
-    <%= render "layouts/sidebar_menu" if user_signed_in? %>
-  </div>
-
-
-  <div class="">
-    <%= notice %>
-    <%= alert %>
-    <%= yield %>
-  </div>
-
-
+</div>
 
   </body>
 </html>

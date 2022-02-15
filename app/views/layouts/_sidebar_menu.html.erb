@@ -1,20 +1,14 @@
-<div class="sidenav">
-  <%= ("Bem Vindo #{current_user.name}") if user_signed_in?  %> <br>
-  <%= ("Empresa #{current_user.company.name}") if user_signed_in?  %> <br>
 
-  <%= user_signed_in? ? (link_to fa_icon('sign-out-alt' , text: t("general.buttons.logout")), destroy_user_session_path, method: :delete) : ( link_to fa_icon('sign-in-alt' , text: t("general.buttons.login")),  new_user_session_path ) %>
-
-
-
-
-<%=  link_to fa_icon('user' , type: :regular, text: t("general.users")), users_path %>
-<%=  link_to fa_icon('file-alt' , type: :regular, text: t("general.fines")), fines_path %>
-<%=  link_to fa_icon('file-powerpoint' , type: :regular, text: t("activerecord.attributes.fine.fine_points")), fine_points_path %>
-<%=  link_to fa_icon('building' , type: :regular, text: t("general.companies")), companies_path %>
-<%=  link_to fa_icon('car' , text: t("general.vehicles")), cars_path %>
-<%=  link_to fa_icon('car-side' , text: t("activerecord.models.car_type")), car_types_path %>
-<%=  link_to fa_icon('car-side' , text: t("activerecord.models.car_model")), car_models_path %>
-
-
-
-</div>
+  <div class="row">
+    <div>
+      <ul class="nav nav-pills nav-stacked">
+        <li><%=  link_to fa_icon('user' , type: :regular, text: t("general.users")), users_path %></li>
+        <li><%=  link_to fa_icon('file-alt' , type: :regular, text: t("general.fines")), fines_path %></li>
+        <li><%=  link_to fa_icon('file-powerpoint' , type: :regular, text: t("activerecord.attributes.fine.fine_points")), fine_points_path %></li>
+        <li><%=  link_to fa_icon('building' , type: :regular, text: t("general.companies")), companies_path %></li>
+        <li><%=  link_to fa_icon('car' , text: t("general.vehicles")), cars_path %></li>
+        <li><%=  link_to fa_icon('car-side' , text: t("activerecord.models.car_type")), car_types_path %></li>
+        <li><%=  link_to fa_icon('car-side' , text: t("activerecord.models.car_model")), car_models_path %></li>
+      </ul>
+    </div>
+  </div>

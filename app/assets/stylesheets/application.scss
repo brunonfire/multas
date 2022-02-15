@@ -1,4 +1,4 @@
-@import "font_awesome5.css";
+@import "font_awesome5";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -13,7 +13,54 @@
 
 
 /* ==================================================================================================== */
-.bg-dark {
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.supremo-bg-dark {
   background-color: #2B3D47;
+}
+.supremo-bg-gray {
+  background-color: #F8F8F8;
+}
+.supremo-table-top-colour {
+  background-color: #F3F2F7;
+}
+
+.supremo-table-colour > tbody > tr > td {
+  background-color: #FFFFFF;
+}
+.navbar {
+  background-color: #2B3D47;
+}
+
+
+.navbar_logo_supremo {
+  width: 35%;
+}
+
+/* flex */
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-around {
+  justify-content: space-around;
+}
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
+
+.align-items-center {
+  align-items: center;
 }
 
