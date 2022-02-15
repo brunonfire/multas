@@ -1,0 +1,22 @@
+<%= form_with(model: car_type, local: true) do |form| %>
+  <% if car_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(car_type.errors.count, t("errors.messages.all_fields") ) %> </h2>
+
+      <ul>
+      <% car_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label t("activerecord.attributes.user.name") %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit t("general.save") %>
+  </div>
+<% end %>

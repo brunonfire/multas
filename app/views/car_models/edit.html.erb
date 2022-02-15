@@ -1,0 +1,6 @@
+<h1> <%= editing_name %> </h1>
+
+<%= render 'form', car_model: @car_model %>
+
+<%= link_to t("general.buttons.show"), @car_model %> |
+<%= link_to t("general.buttons.back"), car_models_path %>

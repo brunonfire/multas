@@ -1,0 +1,23 @@
+
+<p>
+  <strong> <%= t("activerecord.attributes.car.year") %> :</strong>
+  <%= @car.year %>
+</p>
+
+<p>
+  <strong> <%= t("activerecord.attributes.car.license_plate") %> :</strong>
+  <%= @car.license_plate %>
+</p>
+
+<p>
+  <strong> <%= t("activerecord.attributes.user.status") %> :</strong>
+  <%= enum_to_name(@car, :status) %>
+</p>
+
+<p>
+  <strong> <%= t("activerecord.models.car_model") %> :</strong>
+  <%= @car.car_model.name %>
+</p>
+
+<%= link_to t("general.buttons.edit"), edit_car_path(@car) %> |
+<%= link_to t("general.buttons.back"), cars_path %>

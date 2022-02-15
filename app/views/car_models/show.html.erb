@@ -1,0 +1,19 @@
+
+
+<p>
+  <strong> <%= t("activerecord.attributes.user.name") %>: </strong>
+  <%= @car_model.name %>
+</p>
+
+<p>
+  <strong> <%= t("activerecord.models.car_brand") %>: </strong>
+  <%= @car_model.car_brand.name %>
+</p>
+
+<p>
+  <strong> <%= t("activerecord.models.car_type") %>: </strong>
+  <%= @car_model.car_type.name %>
+</p>
+
+<%= link_to t("general.buttons.edit"), edit_car_model_path(@car_model) %> |
+<%= link_to t("general.buttons.back"), car_models_path %>

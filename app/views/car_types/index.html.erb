@@ -1,0 +1,27 @@
+
+
+<h1> <%= t("activerecord.models.car_type") %> </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th> <%= t("activerecord.attributes.user.name") %> </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @car_types.each do |car_type| %>
+    <tr>
+      <td> <%= car_type.name.capitalize %> </td>
+      <td> <%= link_to t("general.buttons.show"), car_type %> </td>
+      <td> <%= link_to t("general.buttons.edit"), edit_car_type_path(car_type) %> </td>
+      <td> <%= link_to t("general.buttons.delete"), car_type, method: :delete, data: {confirm: I18n.t("general.messages.confirm")} %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to t("general.buttons.new_car_type") , new_car_type_path %>
+<%= will_paginate @car_types %>

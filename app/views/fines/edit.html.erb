@@ -1,0 +1,6 @@
+<h1> <%= editing_name %> </h1>
+
+<%= render 'form', fine: @fine %>
+
+<%= link_to t("general.buttons.edit"), @fine %> |
+<%= link_to t("general.buttons.back"), fines_path %>

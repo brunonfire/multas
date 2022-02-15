@@ -1,0 +1,39 @@
+
+
+<h1> <%= t("general.cars") %> </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th> <%= t("activerecord.attributes.car.year") %> </th>
+      <th> <%= t("activerecord.attributes.car.license_plate") %> </th>
+      <th> <%= t("activerecord.attributes.user.status") %> </th>
+      <th> <%= t("activerecord.models.car_model") %> </th>
+      <th> <%= t("activerecord.models.car_type") %> </th>
+      <th>  </th>
+      <th> <%= t("general.actions") %> </th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.year %></td>
+        <td><%= car.license_plate %></td>
+        <td><%= enum_to_name(car, :status) %></td>
+        <td><%= car.car_model&.name %></td>
+        <td><%= car.car_model&.car_type&.name %></td>
+        <td><%= link_to t("general.buttons.show"), car %></td>
+        <td><%= link_to t("general.buttons.edit"), edit_car_path(car) %></td>
+        <td><%= link_to t("general.buttons.delete"), car, method: :delete, data: { confirm: I18n.t("general.messages.confirm") } %></td>
+        <td><%= link_to car.status == "enabled" ? t("general.buttons.disable") : t("general.buttons.enable"), car_enable_disable_path(car), method: :post, remote: true %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t("general.buttons.new_car_type"), new_car_path %>
+<%= will_paginate @cars %>

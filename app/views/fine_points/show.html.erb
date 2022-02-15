@@ -1,0 +1,13 @@
+
+<p>
+  <strong><%= t("activerecord.attributes.user.name") %>:</strong>
+  <%= @fine_point.name %>
+</p>
+
+<p>
+  <strong><%= t("activerecord.models.fine_point.") %>:</strong>
+  <%= @fine_point.point %>
+</p>
+
+<%= link_to t("general.buttons.edit"), edit_fine_point_path(@fine_point) %> |
+<%= link_to t("general.buttons.back"), fine_points_path %>

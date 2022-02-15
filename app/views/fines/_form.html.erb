@@ -1,0 +1,50 @@
+<%= form_with(model: fine, local: true) do |form| %>
+  <% if fine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fine.errors.count, t("errors.messages.all_fields")) %></h2>
+
+      <ul>
+      <% fine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.select :user_id, options_from_collection_for_select( @users, :id , :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fine_date %>
+    <%= form.datetime_select :fine_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fine_status %>
+    <%= form.select :fine_status, options_for_enum(:fine_statuses) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fine_number %>
+    <%= form.text_field :fine_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label t("activerecord.attributes.company_types.branch")  %>
+    <%= form.select :branch_id, options_from_collection_for_select(@branches, :id , :name) %>
+  </div>
+  <div class="field">
+    <%= form.label :detran_id  %>
+    <%= form.select :detran_id, options_from_collection_for_select(@states, :id , :name) %>
+  </div>
+  <div class="field">
+    <%= form.label :fine_points  %>
+    <%= form.select :fine_point_id, options_from_collection_for_select(@fine_points, :id , :name) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit t("general.save") %>
+  </div>
+<% end %>

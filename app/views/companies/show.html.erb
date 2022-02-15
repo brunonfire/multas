@@ -1,0 +1,48 @@
+
+<p>
+  <strong><%= t("activerecord.attributes.user.name") %>:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong> <%= t("activerecord.attributes.company.company_type") %>:</strong>
+  <%= enum_to_name(@company, :company_type) %>
+</p>
+
+<p>
+  <strong><%= t("activerecord.attributes.company.cnpj") %>:</strong>
+  <%= @company.cnpj %>
+</p>
+
+<p>
+  <strong><%= t("activerecord.attributes.company.phone") %>:</strong>
+  <%= @company.phone %>
+</p>
+
+<p>
+  <strong><%= t("activerecord.attributes.company.address") %>:</strong>
+  <%= @company.address %>
+</p>
+
+<p>
+  <strong><%= t("activerecord.attributes.company.number") %>:</strong>
+  <%= @company.number %>
+</p>
+
+<p>
+  <strong><%= t("activerecord.attributes.company.zipcode") %>:</strong>
+  <%= @company.zipcode %>
+</p>
+
+<p>
+  <strong><%= t("activerecord.attributes.company.district") %>:</strong>
+  <%= @company.district %>
+</p>
+
+<p>
+  <strong><%= t("activerecord.models.city") %>:</strong>
+  <%= @company.city.name %>
+</p>
+
+<%= link_to t("general.buttons.edit"), edit_company_path(@company) %> |
+<%= link_to t("general.buttons.back"), companies_path %>

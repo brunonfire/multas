@@ -1,0 +1,37 @@
+<%= form_with(model: car, local: true) do |form| %>
+  <% if car.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(car.errors.count, t("errors.messages.all_fields")) %></h2>
+
+      <ul>
+      <% car.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.select :year, 1970 .. Date.today.year  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :license_plate %>
+    <%= form.text_field :license_plate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, options_for_enum(:statuses)  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :car_model_id %>
+    <%= form.select :car_model_id, options_from_collection_for_select( @car_models, :id , :name) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit t("general.save") %>
+  </div>
+<% end %>

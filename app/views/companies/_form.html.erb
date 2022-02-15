@@ -1,0 +1,67 @@
+<%= form_with(model: company, local: true) do |form| %>
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, t("errors.messages.all_fields")) %></h2>
+
+      <ul>
+      <% company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_type %>
+    <%= form.select :company_type, options_for_enum(:company_types) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cnpj %>
+    <%= form.text_field :cnpj %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zipcode %>
+    <%= form.text_field :zipcode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :district %>
+    <%= form.text_field :district %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city_id %>
+    <%= form.select :city_id, options_from_collection_for_select( @cities, :id , :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state_id %>
+    <%= form.select :state_id, options_from_collection_for_select( @states, :id , :name) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit t("general.save") %>
+  </div>
+<% end %>

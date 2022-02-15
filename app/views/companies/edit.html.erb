@@ -1,0 +1,6 @@
+<h1> <%= editing_name %> </h1>
+
+<%= render 'form', company: @company %>
+
+<%= link_to t("general.buttons.show"), @company %> |
+<%= link_to t("general.buttons.back"), companies_path %>
