@@ -6,7 +6,6 @@
 
 
 
-
 /* ================================== RESET CSS =========================================== */
 * {
   padding:0;
@@ -39,7 +38,7 @@ button:hover {
   background-color: #2B3D47;
 }
 .supremo-bg-gray {
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
 }
 .supremo-table-top-colour {
   background-color: #F3F2F7;
@@ -68,8 +67,11 @@ button:hover {
 
 
 
-/* ================================== TAMANHO LOGOS =================================== */
+/* ================================== TAMANHO  =================================== */
 
+.supremo-size-actions-button {
+  width: 2px;
+}
 .navbar_logo_supremo {
   width: 35%;
 }
@@ -100,3 +102,7 @@ button:hover {
 }
 
 /* ================================================================================== */
+
+.supremo-hover-click {
+  cursor: pointer;
+}
