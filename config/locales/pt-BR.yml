@@ -243,6 +243,7 @@ pt-BR:
       welcome: "Bem Vindo"
     buttons:
       new: "Novo"
+      new_user: "Cadastrar novo usuário"
       new_company: "Cadastrar nova empresa"
       new_car_type: "Cadastrar novo carro"
       new_car_model: "Cadastrar novo modelo"

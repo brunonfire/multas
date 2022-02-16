@@ -2,22 +2,38 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
-
-
-
-
-
-
-
-
-
 /* ==================================================================================================== */
 
+
+
+
+/* ================================== RESET CSS =========================================== */
+* {
+  padding:0;
+  margin:0;
+  box-sizing:border-box
+}
 a {
   text-decoration: none;
-  color: black;
+  color: inherit;
 }
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+button:hover {
+  text-decoration: none;
+  color: inherit;
+}
+.no-hover > a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+/* ==================================================================================== */
+
+
+/* ================================== CORES =========================================== */
 
 .supremo-bg-dark {
   background-color: #2B3D47;
@@ -28,25 +44,45 @@ a {
 .supremo-table-top-colour {
   background-color: #F3F2F7;
 }
-
 .supremo-table-colour > tbody > tr > td {
   background-color: #FFFFFF;
 }
-.navbar {
+.supremo-navbar-colour {
   background-color: #2B3D47;
 }
+.supremo-sidebar-nav-colour-hover > li > a:hover {
+  background-color: #2B3D47;
+  color: #EFEFEF;
+}
+.text-white {
+  color: #FFFFFF;
+}
+.supremo-btn-gray {
+  background-color: #2B3D47;
+}
+.supremo-btn-gray:hover {
+  background-color: black;
+}
 
+/* ==================================================================================== */
+
+
+
+/* ================================== TAMANHO LOGOS =================================== */
 
 .navbar_logo_supremo {
   width: 35%;
 }
 
-/* flex */
+/* ==================================================================================== */
+
+
+
+/* ======================================== FLEX ======================================= */
 
 .d-flex {
   display: flex;
 }
-
 .justify-content-center {
   justify-content: center;
 }
@@ -59,8 +95,8 @@ a {
 .justify-content-evenly {
   justify-content: space-evenly;
 }
-
 .align-items-center {
   align-items: center;
 }
 
+/* ================================================================================== */

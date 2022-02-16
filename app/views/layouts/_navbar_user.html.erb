@@ -1,4 +1,4 @@
-<nav class="navbar ">
+<nav class="navbar supremo-navbar-colour ">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="" href="#">
@@ -7,7 +7,7 @@
     </div>
     <ul class="nav navbar-nav navbar-right">
       <li role="presentation" class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        <a class="dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           <%= ("#{current_user.name}") %> <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
@@ -27,14 +27,3 @@
 
 
 
-
-<div class="">
-  <div class="">
-    <%= ("#{current_user.name}") %>
-
-  </div>
-  <div>
-    <%= ("Empresa #{current_user.company.name}") if user_signed_in?  %>
-  </div>
-
-<%= user_signed_in? ? (link_to fa_icon('sign-out-alt' , text: t("general.buttons.logout")), destroy_user_session_path, method: :delete) : ( link_to fa_icon('sign-in-alt' , text: t("general.buttons.login")),  new_user_session_path ) %>
