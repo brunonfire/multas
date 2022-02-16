@@ -1,52 +1,56 @@
 
 <div class="row d-flex justify-content-center align-items-center">
-  <div class="col-md-10 col-sm-10">
-    <h1> <%= t("general.fines") %> </h1>
+  <div class="col-md-10 col-sm-9">
+    <h1><%= t("general.fines") %></h1>
   </div>
-  <div class="col-md-2 d-flex justify-content-center align-items-center">
-    <button type="button" class="btn btn-primary"><%= link_to t("general.buttons.new_fine"), new_fine_path if current_user.admin? %></button>
+  <div class="col-md-3 d-flex justify-content-center align-items-center">
+    <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.new_fine"), new_fine_path, class: "text-white" %></button>
   </div>
 </div>
-
-
-
 
 
 <table class="table supremo-table-colour">
   <thead>
     <tr class="supremo-table-top-colour">
-      <th><%= t("activerecord.attributes.user.name") %></th>
-      <th><%= t("activerecord.attributes.fine.fine_date") %></th>
-      <th><%= t("activerecord.attributes.fine.fine_status") %></th>
-      <th><%= t("activerecord.attributes.fine.fine_number") %></th>
-      <th><%= t("activerecord.attributes.company_types.branch") %></th>
-      <th><%= t("activerecord.attributes.fine.detran_id") %></th>
-      <th><%= t("activerecord.attributes.fine.fine_points") %></th>
+      <th class="text-center"><%= t("activerecord.attributes.user.name") %></th>
+      <th class="text-center"><%= t("activerecord.attributes.fine.fine_date") %></th>
+      <th class="text-center"><%= t("activerecord.attributes.fine.fine_status") %></th>
+      <th class="text-center"><%= t("activerecord.attributes.fine.fine_number") %></th>
+      <th class="text-center"><%= t("activerecord.attributes.company_types.branch") %></th>
+      <th class="text-center"><%= t("activerecord.attributes.fine.detran_id") %></th>
+      <th class="text-center"><%= t("activerecord.attributes.fine.fine_points") %></th>
       <th colspan="3" class="text-center" ><%= t("general.actions") %></th>
-
     </tr>
   </thead>
 
   <tbody>
     <% @fines.each do |fine| %>
       <tr>
-        <td><%= fine.user.name %></td>
-        <td><%= fine.fine_date %></td>
-        <td><%= enum_to_name(fine, :fine_status) %></td>
-        <td><%= fine.fine_number %></td>
-        <td><%= fine.branch&.name %></td>
-        <td><%= fine.detran&.name %></td>
-        <td><%= fine.fine_point&.name %></td>
-        <td><%= link_to t("general.buttons.show"), fine %></td>
-        <td><%= link_to t("general.buttons.edit"), edit_fine_path(fine) %></td>
-        <td><%= link_to t("general.buttons.delete"), fine, method: :delete, data: { confirm: I18n.t("general.messages.confirm") } %></td>
-        <td> <%= link_to t("activerecord.attributes.fine.change_status"), fine_identified_unidentified_path(fine), method: :post, remote: true %> </td>
+        <td class="text-center"><%= fine.user.name %></td>
+        <td class="text-center"><%= fine.fine_date %></td>
+        <td class="text-center"><%= enum_to_name(fine, :fine_status) %></td>
+        <td class="text-center"><%= fine.fine_number %></td>
+        <td class="text-center"><%= fine.branch&.name %></td>
+        <td class="text-center"><%= fine.detran&.name %></td>
+        <td class="text-center"><%= fine.fine_point&.name %></td>
+        <td>
+          <div class="dropdown text-center ">
+            <button type="button" class="fas fa-ellipsis-v supremo-hover-click" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><%= link_to t("general.buttons.show"), fine_path(fine) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to t("activerecord.attributes.fine.change_status"), fine_identified_unidentified_path(fine), method: :post, remote: true %></li>
+              <li><%= link_to t("general.buttons.delete"), fine_path(fine), method: :delete, data: {confirm: I18n.t("general.messages.confirm")} %></li>
+            </ul>
+
+            <%= link_to fa_icon('user-edit'), edit_fine_path(fine), class: "pad-left-5" %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-
-<%= will_paginate @fines %>
+<div class="col-md-3 col-md-offset-9">
+  <%= will_paginate @fines %>
+</div>
