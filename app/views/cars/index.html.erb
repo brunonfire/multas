@@ -1,39 +1,53 @@
 
+<div class="row d-flex justify-content-center align-items-center ">
+  <div class="col-md-10 col-sm-9">
+    <h1 class=""> <%= t("general.cars") %> </h1>
+  </div>
+  <div class="col-md-3 d-flex justify-content-center align-items-center">
+    <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.new_car_type"), new_car_path, class: "text-white" %></button>
+  </div>
+</div>
 
-<h1> <%= t("general.cars") %> </h1>
-
-<table>
+<table class="table supremo-table-colour">
   <thead>
-    <tr>
-      <th> <%= t("activerecord.attributes.car.year") %> </th>
-      <th> <%= t("activerecord.attributes.car.license_plate") %> </th>
-      <th> <%= t("activerecord.attributes.user.status") %> </th>
-      <th> <%= t("activerecord.models.car_model") %> </th>
-      <th> <%= t("activerecord.models.car_type") %> </th>
-      <th>  </th>
-      <th> <%= t("general.actions") %> </th>
-      <th colspan="4"></th>
+    <tr class="supremo-table-top-colour">
+      <th class="text-center"><%= t("activerecord.attributes.car.year") %></th>
+      <th class="text-center"><%= t("activerecord.attributes.car.license_plate") %></th>
+      <th class="text-center"><%= t("activerecord.attributes.user.status") %></th>
+      <th class="text-center"><%= t("activerecord.models.car_model") %></th>
+      <th class="text-center"><%= t("activerecord.models.car_type") %></th>
+      <th  class="text-center"><%= t("general.actions") %></th>
     </tr>
   </thead>
 
   <tbody>
     <% @cars.each do |car| %>
       <tr>
-        <td><%= car.year %></td>
-        <td><%= car.license_plate %></td>
-        <td><%= enum_to_name(car, :status) %></td>
-        <td><%= car.car_model&.name %></td>
-        <td><%= car.car_model&.car_type&.name %></td>
-        <td><%= link_to t("general.buttons.show"), car %></td>
-        <td><%= link_to t("general.buttons.edit"), edit_car_path(car) %></td>
-        <td><%= link_to t("general.buttons.delete"), car, method: :delete, data: { confirm: I18n.t("general.messages.confirm") } %></td>
-        <td><%= link_to car.status == "enabled" ? t("general.buttons.disable") : t("general.buttons.enable"), car_enable_disable_path(car), method: :post, remote: true %> </td>
+        <td class="text-center"><%= car.year %></td>
+        <td class="text-center"><%= car.license_plate %></td>
+        <td class="text-center"><%= enum_to_name(car, :status) %></td>
+        <td class="text-center"><%= car.car_model&.name %></td>
+        <td class="text-center"><%= car.car_model&.car_type&.name %></td>
+        <td>
+          <div class="dropdown text-center">
+            <button type="button" class="fas fa-ellipsis-v supremo-hover-click" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><%= link_to t("general.buttons.show"), car_path(car) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to car.status == "enabled" ? t("general.buttons.disable") : t("general.buttons.enable"), car_enable_disable_path(car), method: :post, remote: true %></li>
+              <li><%= link_to t("general.buttons.delete"), car_path(car), method: :delete, data: {confirm: I18n.t("general.messages.confirm")} if current_user.admin? %></li>
+            </ul>
+            <%= link_to fa_icon('user-edit'), edit_car_path(car), class: "pad-left-5" %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<div class="col-md-3 col-md-offset-9">
+  <div class="supremo_pagination">
+    <%= will_paginate @cars %>
+  </div>
+</div>
 
-<%= link_to t("general.buttons.new_car_type"), new_car_path %>
-<%= will_paginate @cars %>

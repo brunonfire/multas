@@ -1,31 +1,48 @@
 
-<h1> <%= t("activerecord.models.car_model") %> </h1>
+<div class="row d-flex justify-content-center align-items-center ">
+  <div class="col-md-10 col-sm-9">
+    <h1 class=""> <%= t("activerecord.models.car_model") %> </h1>
+  </div>
+  <div class="col-md-3 d-flex justify-content-center align-items-center">
+    <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.new_car_model"), new_car_model_path, class: "text-white" %></button>
+  </div>
+</div>
 
-<table>
+<table class="table supremo-table-colour">
   <thead>
-    <tr>
-      <th> <%= t("activerecord.attributes.user.name") %> </th>
-      <th> <%= t("activerecord.models.car_brand") %> </th>
-      <th> <%= t("activerecord.models.car_type") %> </th>
-      <th colspan="3"></th>
+    <tr class="supremo-table-top-colour">
+      <th class="text-center"><%= t("activerecord.attributes.user.name") %></th>
+      <th class="text-center"><%= t("activerecord.models.car_brand") %></th>
+      <th class="text-center"><%= t("activerecord.models.car_type") %></th>
+      <th colspan="" class="text-center"><%= t("general.actions") %></th>
     </tr>
   </thead>
 
   <tbody>
     <% @car_models.each do |car_model| %>
       <tr>
-        <td><%= car_model.name %></td>
-        <td><%= car_model.car_brand.name %></td>
-        <td><%= car_model.car_type.name %></td>
-        <td><%= link_to t("general.buttons.show"), car_model %></td>
-        <td><%= link_to t("general.buttons.edit"), edit_car_model_path(car_model) %></td>
-        <td><%= link_to t("general.buttons.delete"), car_model, method: :delete, data: { confirm: I18n.t("general.messages.confirm") } %></td>
+        <td class="text-center"><%= car_model.name %></td>
+        <td class="text-center"><%= car_model.car_brand.name %></td>
+        <td class="text-center"><%= car_model.car_type.name %></td>
+        <td>
+          <div class="dropdown text-center">
+            <button type="button" class="fas fa-ellipsis-v supremo-hover-click" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><%= link_to t("general.buttons.show"), car_model_path(car_model) %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to t("general.buttons.delete"), car_model_path(car_model), method: :delete, data: {confirm: I18n.t("general.messages.confirm")} if current_user.admin? %></li>
+            </ul>
+            <%= link_to fa_icon('user-edit'), edit_car_model_path(car_model), class: "pad-left-5" %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<div class="col-md-3 col-md-offset-9">
+  <div class="supremo_pagination">
+    <%= will_paginate @car_models %>
+  </div>
+</div>
 
-<%= link_to t("general.buttons.new_car_model"), new_car_model_path %>
-<%= will_paginate @car_models %>

@@ -1,9 +1,9 @@
 
 <div class="row d-flex justify-content-center align-items-center ">
-  <div class="col-md-10 col-sm-9">
+  <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
     <h1 class=""> <%= t("general.users") %> </h1>
   </div>
-  <div class="col-md-3 d-flex justify-content-center align-items-center">
+  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 d-flex justify-content-center align-items-center">
     <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.new_user"), new_user_path, class: "text-white" %></button>
   </div>
 </div>
@@ -48,6 +48,8 @@
   </table>
 
 <div class="col-md-3 col-md-offset-9">
-  <%= will_paginate @users %>
+  <div class="supremo_pagination">
+    <%= will_paginate @users %>
+  </div>
 </div>
 

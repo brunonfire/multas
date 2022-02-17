@@ -1,6 +1,7 @@
 @import "font_awesome5";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "will_paginate";
 
 /* ==================================================================================================== */
 
@@ -69,11 +70,14 @@ button:hover {
 
 /* ================================== TAMANHO  ======================================== */
 
+.supremo-navbar-size {
+  max-height: 62px;
+}
 .supremo-size-actions-button {
   width: 2px;
 }
 .navbar_logo_supremo {
-  width: 35%;
+    max-width: 35%;
 }
 
 /* ==================================================================================== */
@@ -117,3 +121,5 @@ button:hover {
 .pad-left-5 {
   padding-left: 5px;
 }
+
+

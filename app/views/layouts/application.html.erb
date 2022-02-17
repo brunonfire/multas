@@ -13,31 +13,30 @@
 
   </head>
 
-  <body class="supremo-bg-gray">
+  <body>
   <% if signed_in? %>
+  <div class="">
     <%= render "layouts/navbar_user" %>
-  <% end %>
-<div class="container-fluid ">
-  <div class="row d-flex justify-content-around">
+  </div>
 
+  <% end %>
+<div class="container-fluid">
+  <div class="row d-flex justify-content-around">
     <% unless signed_in? %>
       <div class="">
         <%= image_tag "foto_inicio.png" %>
       </div>
     <% end %>
 
-    <div class="col-md-2 d-flex justify-content-center align-items-center">
+    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 d-flex justify-content-center align-items-center">
       <%= render "layouts/sidebar_menu" if user_signed_in? %>
     </div>
 
-
-    <div class="col-md-10 ">
+    <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12 ">
       <%= notice %>
       <%= alert %>
       <%= yield %>
     </div>
-
-
   </div>
 </div>
 
