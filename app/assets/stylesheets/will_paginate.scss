@@ -10,15 +10,21 @@
   font-style: normal;
   font-weight: bold;
   color: #F3F2F7;
-  background-color: #2B3D47 }
+  background-color: #2B3D47;
+  border: none;
+  border-radius: 25px;}
 .supremo_pagination a {
   color: #6E6B7B;
   background-color: #F3F2F7;
-  text-decoration: none; }
+  text-decoration: none;
+  border: none;
+  border-radius: 25px;}
 .supremo_pagination a:hover, .supremo_pagination a:focus {
   border-color: #2B3D47;
   background: #BABFC7;
-  color: white; }
+  color: white;
+  border: none;
+  border-radius: 25px;}
 .supremo_pagination .page_info {
   color: #aaaaaa;
   padding-top: 0.8em; }

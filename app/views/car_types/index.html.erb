@@ -1,8 +1,8 @@
 <div class="row d-flex justify-content-center align-items-center ">
-  <div class="col-md-10 col-sm-9">
+  <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
     <h1 class=""><%= t("activerecord.models.car_type") %></h1>
   </div>
-  <div class="col-md-3 d-flex justify-content-center align-items-center">
+  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 d-flex justify-content-end">
     <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.new_car_type"), new_car_type_path, class: "text-white" %></button>
   </div>
 </div>
@@ -25,7 +25,7 @@
             <li role="separator" class="divider"></li>
             <li><%= link_to t("general.buttons.delete"), car_type_path(car_type), method: :delete, data: {confirm: I18n.t("general.messages.confirm")} if current_user.admin? %></li>
           </ul>
-          <%= link_to fa_icon('user-edit'), edit_car_type_path(car_type), class: "pad-left-5" %>
+          <%= link_to fa_icon('user-edit'), edit_car_type_path(car_type), class: "pl-5" %>
         </div>
       </td>
     </tr>
@@ -33,9 +33,9 @@
   </tbody>
 </table>
 
-<div class="col-md-3 col-md-offset-9">
+<div class="d-flex justify-content-end align-items-center">
   <div class="supremo_pagination">
-    <%= will_paginate @car_types %>
+    <%= will_paginate @car_types, previous_label: fa_icon('angle-left'), next_label: fa_icon('angle-right') %>
   </div>
 </div>
 

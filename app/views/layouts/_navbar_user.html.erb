@@ -1,23 +1,22 @@
 <nav class="navbar supremo-navbar-colour supremo-navbar-size">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="" href="#"><%= image_tag ("navbar_logo_supremo.png"), class:"navbar_logo_supremo " %></a>
+  <div class="row mt-10 ml-15 mr-15 d-flex">
+    <div class="col-lg-12 col-md-12 col-sm-10 col-xs-12 ">
+        <a class="" href="#"><%= image_tag ("navbar_logo_supremo.png"),size:"48x41", class:" " %></a>
     </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li role="presentation" class="dropdown">
-        <a class="dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <%= ("#{current_user.name}") %><span class="caret"></span>
-        </a>
-      <ul class="dropdown-menu">
-        <li><%= link_to fa_icon('user-edit' , text: t("general.buttons.edit")), edit_user_path(current_user) %></li>
-        <li><%=(link_to fa_icon('sign-out-alt' , text: t("general.buttons.logout")), destroy_user_session_path, method: :delete) %></li>
+    <div class=" col-lg-2 col-md-2 col-sm-2 col-xs-12 d-flex justify-content-end">
+      <ul class="nav navbar-nav">
+        <li role="presentation" class="dropdown">
+          <a class="dropdown-toggle text-white" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <%= ("#{current_user.name}") %><span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to fa_icon('user-edit' , text: t("general.buttons.edit")), edit_user_path(current_user) %></li>
+            <li><%=(link_to fa_icon('sign-out-alt' , text: t("general.buttons.logout")), destroy_user_session_path, method: :delete) %></li>
+          </ul>
       </ul>
-    </ul>
+    </div>
   </div>
 </nav>
-
-
-
 
 
 

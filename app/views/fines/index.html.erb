@@ -1,9 +1,9 @@
 
 <div class="row d-flex justify-content-center align-items-center">
-  <div class="col-md-10 col-sm-9">
+  <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
     <h1><%= t("general.fines") %></h1>
   </div>
-  <div class="col-md-3 d-flex justify-content-center align-items-center">
+  <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12 d-flex justify-content-end">
     <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.new_fine"), new_fine_path, class: "text-white" %></button>
   </div>
 </div>
@@ -23,12 +23,27 @@
     </tr>
   </thead>
 
+
+
+
+
   <tbody>
     <% @fines.each do |fine| %>
       <tr>
         <td class="text-center"><%= fine.user.name %></td>
-        <td class="text-center"><%= fine.fine_date %></td>
-        <td class="text-center"><%= enum_to_name(fine, :fine_status) %></td>
+        <td class="text-center"><%= l(fine.fine_date, format: :short) %></td>
+        <td class="">
+          <%  if fine.fine_status == "identified" %>
+              <div class="d-flex justify-content-center">
+                <div class="text-center supremo-btn-identified"><%= t("activerecord.attributes.fine_statuses.identified") %></div>
+              </div>
+            <% else %>
+            <div class="d-flex justify-content-center">
+              <div class="text-center supremo-btn-unidentified"><%= t("activerecord.attributes.fine_statuses.unidentified") %></div>
+            </div>
+          <% end %>
+        </td>
+
         <td class="text-center"><%= fine.fine_number %></td>
         <td class="text-center"><%= fine.branch&.name %></td>
         <td class="text-center"><%= fine.detran&.name %></td>
@@ -43,7 +58,7 @@
               <li><%= link_to t("general.buttons.delete"), fine_path(fine), method: :delete, data: {confirm: I18n.t("general.messages.confirm")} %></li>
             </ul>
 
-            <%= link_to fa_icon('user-edit'), edit_fine_path(fine), class: "pad-left-5" %>
+            <%= link_to fa_icon('user-edit'), edit_fine_path(fine), class: "pl-5" %>
           </div>
         </td>
       </tr>
@@ -51,8 +66,10 @@
   </tbody>
 </table>
 
-<div class="col-md-3 col-md-offset-9">
+<div class="d-flex justify-content-end align-items-center">
   <div class="supremo_pagination">
-    <%= will_paginate @fines %>
+    <%= will_paginate @fines, previous_label: fa_icon('angle-left'), next_label: fa_icon('angle-right') %>
   </div>
 </div>
+
+
