@@ -57,7 +57,6 @@ button:hover {
   background-color: #2B3D47;
   color: #EFEFEF;
 }
-
 .text-white {
   color: #FFFFFF;
 }
@@ -92,7 +91,6 @@ button:hover {
 .d-flex {
   display: flex;
 }
-
 .justify-content-center {
   justify-content: center;
 }
@@ -157,4 +155,20 @@ button:hover {
   background: rgba(255, 159, 67,0.2);
   color: rgb(255, 159, 67);
   width: 50% ;
+}
+.supremo-box-show-users {
+  border-radius: 10px;
+  box-shadow: 1px 2px 15px 6px rgba(0,0,0,0.15);
+  background: #FFFFFF;
+  padding: 0px 20px 0px 20px;
+  width: 830px;
+  height: 450px;
+}
+.supremo-box-edit-users {
+  border-radius: 10px;
+  box-shadow: 1px 2px 15px 6px rgba(0,0,0,0.15);
+  background: #FFFFFF;
+  padding: 0px 20px 0px 20px;
+  width: 830px;
+  height: 500px;
 }

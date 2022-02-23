@@ -1,26 +1,40 @@
+<div class="d-flex justify-content-center">
 
-<p>
-  <strong> <%= t("activerecord.attributes.user.name") %> </strong>
-  <%= @user.name %>
-</p>
+  <div class="supremo-box-show-users">
 
-<p>
-  <strong> <%= t("activerecord.attributes.user.email") %> </strong>
-  <%= @user.email %>
-</p>
+    <form>
+      <fieldset disabled>
+        <div class="form-group">
+          <label for="disabledTextInput"><%= t("activerecord.attributes.user.name") %></label>
+          <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @user.name %>">
+        </div>
+      </fieldset>
+      <fieldset disabled>
+        <div class="form-group">
+          <label for="disabledTextInput"><%= t("activerecord.attributes.user.email") %></label>
+          <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @user.email %>">
+        </div>
+      </fieldset>
+      <fieldset disabled>
+        <div class="form-group">
+          <label for="disabledTextInput"><%= t("activerecord.attributes.user.status") %></label>
+          <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= enum_to_name(@user, :status) %>">
+        </div>
+      </fieldset>
+      <fieldset disabled>
+        <div class="form-group">
+          <label for="disabledTextInput"><%= t("activerecord.attributes.user.user_type") %></label>
+          <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= enum_to_name(@user, :user_type) %>">
+        </div>
+      </fieldset>
+        <button type="button" class="btn supremo-btn-gray "><%= link_to t("general.buttons.edit"), edit_user_path, class: "text-white" %></button>
+        <button type="button" class="btn supremo-btn-gray "><%= link_to t("general.buttons.delete"), user_path(@user), method: :delete, class: "text-white" %></button>
+        <button type="button" class="btn supremo-btn-gray "><%= link_to t("general.buttons.back"),  users_path, class: "text-white" %></button>
 
-<p>
-  <strong> <%= t("activerecord.attributes.user.status") %> </strong>
-  <%= enum_to_name(@user, :status) %>
-</p>
+    </form>
+  </div>
 
-<p>
-  <strong> <%= t("activerecord.attributes.user.user_type") %> </strong>
-  <%= enum_to_name(@user, :user_type) %>
-</p>
+</div>
 
 
-<%= link_to t("general.buttons.edit"), edit_user_path if current_user.admin? %>
-<%= link_to t("general.buttons.delete"), user_path(@user), method: :delete if current_user.admin? %>
-<%= link_to t("general.buttons.back"),  users_path %>
 
