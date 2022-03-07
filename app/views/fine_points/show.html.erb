@@ -1,13 +1,47 @@
+<div class="d-flex justify-content-center">
+  <div class="supremo-box-show">
+    <form>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <fieldset disabled>
+            <div class="form-group">
+              <label for="name"><%= t("activerecord.attributes.user.name") %></label>
+              <input type="text" id="name" class="form-control" placeholder="<%= @fine_point.name %>">
+            </div>
+          </fieldset>
+          <fieldset disabled>
+            <div class="form-group">
+              <label for="points"><%= t("activerecord.attributes.fine.fine_points") %></label>
+              <input type="text" id="points" class="form-control" placeholder="<%= @fine_point.point %>">
+            </div>
+          </fieldset>
+        </div>
+      </div>
+      <div class="">
+        <button type="button" class="btn supremo-btn-gray no-hover">
+          <%= link_to t("general.buttons.edit"), edit_fine_point_path, class: "text-white" %>
+        </button>
+        <button type="button" class="btn supremo-btn-gray no-hover">
+          <%= link_to t("general.buttons.delete"), fine_points_path(@fine_points), method: :delete, class: "text-white" %>
+        </button>
+        <button type="button" class="btn supremo-btn-gray no-hover">
+          <%= link_to t("general.buttons.back"),  fine_points_path, class: "text-white" %>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 
-<p>
-  <strong><%= t("activerecord.attributes.user.name") %>:</strong>
-  <%= @fine_point.name %>
-</p>
 
-<p>
-  <strong><%= t("activerecord.models.fine_point.") %>:</strong>
-  <%= @fine_point.point %>
-</p>
 
-<%= link_to t("general.buttons.edit"), edit_fine_point_path(@fine_point) %> |
-<%= link_to t("general.buttons.back"), fine_points_path %>
+
+
+
+
+
+
+
+
+
+
+

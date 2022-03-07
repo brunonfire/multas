@@ -230,7 +230,7 @@ pt-BR:
     cars: "Carros"
     actions: "Ações"
     set_account: "Defina a conta"
-    save: "Salvar"
+    save: 'Salvar'
     messages:
       create: "%{model} criado(a) com sucesso."
       update: "%{model} modificado(a) com sucesso."
@@ -238,6 +238,7 @@ pt-BR:
       confirm: "Você tem certeza?"
       status: "O status foi alterado para %{model}"
       editing: "Editando o %{model}"
+      editing2: "Editando a %{model}"
       register: "Cadastro"
       registering: "Cadastrando %{model}"
       welcome: "Bem Vindo"

@@ -43,6 +43,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.company = current_company
+    @user.created_by = current_user
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: create_msg }

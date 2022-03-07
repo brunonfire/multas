@@ -15,6 +15,8 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require font_awesome5
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
 
 

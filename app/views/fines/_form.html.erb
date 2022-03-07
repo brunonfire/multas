@@ -2,49 +2,72 @@
   <% if fine.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(fine.errors.count, t("errors.messages.all_fields")) %></h2>
-
-      <ul>
-      <% fine.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% fine.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
     </div>
-  <% end %>
+   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.select :user_id, options_from_collection_for_select( @users, :id , :name) %>
-  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#datetimepicker4').datetimepicker({
+              sideBySide: true,
+              format: 'd/M/YY, H:mm'
+          });
+      });
+  </script>
 
-  <div class="field">
-    <%= form.label :fine_date %>
-    <%= form.datetime_select :fine_date %>
-  </div>
+      <form>
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+              <label for=""><%= t("activerecord.attributes.user.name") %></label>
+              <%= form.select :user_id, options_from_collection_for_select( @users, :id , :name), {}, {class: "form-control"} %>
+            </div>
+              <div class="form-group">
+                <label for=""><%= t("activerecord.attributes.fine.fine_date") %></label>
+                <div>
+                  <%= form.datetime_field :fine_date %>
 
-  <div class="field">
-    <%= form.label :fine_status %>
-    <%= form.select :fine_status, options_for_enum(:fine_statuses) %>
-  </div>
+                  <div class='col-sm-6'>
+                    <input type='text' class="form-control" id='datetimepicker4' />
+                  </div>
 
-  <div class="field">
-    <%= form.label :fine_number %>
-    <%= form.text_field :fine_number %>
-  </div>
+                </div>
+              </div>
+            <div class="form-group">
+              <label for="fine_status"><%= t("activerecord.attributes.fine.fine_status") %></label>
+              <%= form.select :fine_status, options_for_enum(:fine_statuses), {}, {class: "form-control"} %>
+            </div>
+            <div class="form-group">
+              <label><%= t("activerecord.attributes.fine.fine_number") %></label>
 
-  <div class="field">
-    <%= form.label t("activerecord.attributes.company_types.branch")  %>
-    <%= form.select :branch_id, options_from_collection_for_select(@branches, :id , :name) %>
-  </div>
-  <div class="field">
-    <%= form.label :detran_id  %>
-    <%= form.select :detran_id, options_from_collection_for_select(@states, :id , :name) %>
-  </div>
-  <div class="field">
-    <%= form.label :fine_points  %>
-    <%= form.select :fine_point_id, options_from_collection_for_select(@fine_points, :id , :name) %>
-  </div>
+              <%= form.text_field :fine_number, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+              <label for="disabledTextInput"><%= t("activerecord.attributes.company_types.branch") %></label>
+              <%= form.select :branch_id, options_from_collection_for_select(@branches, :id , :name), {}, {class: "form-control"} %>
+            </div>
+            <div class="form-group">
+              <label for="disabledTextInput"><%= t("activerecord.attributes.fine.detran_id") %></label>
+              <%= form.select :detran_id, options_from_collection_for_select(@states, :id , :name), {}, {class: "form-control"} %>
+            </div>
+            <div class="form-group">
+              <label for="disabledTextInput"><%= t("activerecord.attributes.fine.fine_points") %></label>
+              <%= form.select :fine_point_id, options_from_collection_for_select(@fine_points, :id , :name), {}, {class: "form-control"} %>
+            </div>
+          </div>
+        </div>
 
-  <div class="actions">
-    <%= form.submit t("general.save") %>
-  </div>
+        <%= form.button t("general.save"), type: "submit", class: "btn supremo-btn-gray text-white no-hover-button" %>
+        <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.delete"), fines_path(@fines), method: :delete, class: "text-white" %></button>
+        <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.back"),  fines_path, class: "text-white" %></button>
+
+      </form>
+
+
 <% end %>

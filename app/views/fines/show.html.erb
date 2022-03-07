@@ -1,29 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="supremo-box-show">
+    <form>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <fieldset disabled>
+            <div class="form-group">
+              <label for="name"><%= t("activerecord.attributes.user.name") %></label>
+              <input type="text" id="name" class="form-control" placeholder="<%= @fine.user.name %>">
+            </div>
+          </fieldset>
+          <fieldset disabled>
+            <div class="form-group">
+              <label for="disabledTextInput"><%= t("activerecord.attributes.fine.fine_date") %></label>
+              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @fine.fine_date %>">
+            </div>
+          </fieldset>
+          <fieldset disabled>
+            <div class="form-group">
+              <label for="disabledTextInput"><%= t("activerecord.attributes.fine.fine_status") %></label>
+              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= enum_to_name(@fine, :fine_status) %>">
+            </div>
+          </fieldset>
+          <fieldset disabled>
+            <div class="form-group">
+              <label for="disabledTextInput"><%= t("activerecord.attributes.fine.fine_number") %></label>
+              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @fine.fine_number %>">
+            </div>
+          </fieldset>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+          <fieldset disabled>
+            <div class="form-group">
+              <label for="disabledTextInput"><%= t("activerecord.attributes.company_types.branch") %></label>
+              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @fine.branch&.name %>">
+            </div>
+          </fieldset>
+          <fieldset disabled>
+            <div class="form-group">
+              <label for="disabledTextInput"><%= t("activerecord.attributes.fine.detran_id") %></label>
+              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @fine.detran&.name %>">
+            </div>
+          </fieldset>
+          <fieldset disabled>
+            <div class="form-group">
+              <label for="disabledTextInput"><%= t("activerecord.attributes.fine.fine_points") %></label>
+              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @fine.fine_point&.name %>">
+            </div>
+          </fieldset>
+        </div>
+      </div>
+        <div class="">
+          <button type="button" class="btn supremo-btn-gray no-hover">
+            <%= link_to t("general.buttons.edit"), edit_fine_path, class: "text-white" %>
+          </button>
+          <button type="button" class="btn supremo-btn-gray no-hover">
+            <%= link_to t("general.buttons.delete"), fines_path(@fines), method: :delete, class: "text-white" %>
+          </button>
+          <button type="button" class="btn supremo-btn-gray no-hover">
+            <%= link_to t("general.buttons.back"),  fines_path, class: "text-white" %>
+          </button>
+        </div>
+    </form>
+  </div>
+</div>
 
 
-<p>
-  <strong> <%= t("activerecord.attributes.user.name") %>:</strong>
-  <%= @fine.user.name %>
-</p>
 
-<p>
-  <strong><%= t("activerecord.attributes.fine.fine_date") %>:</strong>
-  <%= @fine.fine_date %>
-</p>
 
-<p>
-  <strong> <%= t("activerecord.attributes.fine.fine_status") %>:</strong>
-  <%= enum_to_name(@fine, :fine_status) %>
-</p>
 
-<p>
-  <strong> <%= t("activerecord.attributes.fine.fine_number") %>:</strong>
-  <%= @fine.fine_number %>
-</p>
 
-<p>
-  <strong><%= t("activerecord.attributes.company_types.branch") %>:</strong>
-  <%= @fine.branch&.name %>
-</p>
 
-<%= link_to t("general.buttons.edit"), edit_fine_path(@fine) %> |
-<%= link_to t("general.buttons.back"), fines_path %>
+
+
+
+
+
+
+

@@ -1,10 +1,6 @@
 
 <%= form_for @user do |form| %>
 
-
-  <div class="d-flex justify-content-center">
-    <div class="supremo-box-edit-users">
-        <h2><%= editing_name %></h2>
       <form>
           <div class="form-group">
             <label for=""><%= t("activerecord.attributes.user.name") %></label>
@@ -12,28 +8,29 @@
           </div>
 
           <div class="form-group">
-            <label for="disabledTextInput"><%= t("activerecord.attributes.user.email") %></label>
-            <input type="text" id="disabledTextInput" class="form-control" value="<%= @user.email %>">
+            <label ><%= t("activerecord.attributes.user.email") %></label>
+            <input type="text"  class="form-control" value="<%= @user.email %>">
           </div>
 
           <div class="form-group">
-            <label for="disabledTextInput"><%= t("activerecord.attributes.user.status") %></label>
-            <%= form.select(:status, options_for_enum(:statuses), {}, {class: "form-control"}) %>
+            <label ><%= t("activerecord.attributes.user.status") %></label>
+            <%= form.select :status, options_for_enum(:statuses), {}, {class: "form-control"} %>
           </div>
           <div class="form-group">
-            <label for="disabledTextInput"><%= t("activerecord.attributes.user.user_type") %></label>
-            <%= form.select(:status, options_for_enum(:user_types), {}, {class: "form-control"}) %>
+            <label ><%= t("activerecord.attributes.user.user_type") %></label>
+            <%= form.select :user_type , options_for_enum(:user_types), {}, {class: "form-control"} %>
           </div>
           <div class="form-group">
-            <label for="disabledTextInput"><%= t("activerecord.attributes.company_types.branch") %></label>
-            <%= form.select(:status, options_from_collection_for_select(@companies, :id , :name), {}, {class: "form-control"}) %>
+            <label ><%= t("activerecord.attributes.company_types.branch") %></label>
+            <%= form.select  :company_id, options_from_collection_for_select(@companies, :id , :name), {}, {class: "form-control"} %>
           </div>
-        <%= form.submit t("general.save"), class: "btn supremo-btn-gray text-white" %>
-        <button type="button" class="btn supremo-btn-gray "><%= link_to t("general.buttons.delete"), user_path(@user), method: :delete, class: "text-white" %></button>
-        <button type="button" class="btn supremo-btn-gray "><%= link_to t("general.buttons.back"),  users_path, class: "text-white" %></button>
+
+        <%= form.button t("general.save"), type: "submit", class: "btn supremo-btn-gray text-white no-hover-button" %>
+        <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.delete"), users_path(@user), method: :delete, class: "text-white" %></button>
+        <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.back"),  users_path, class: "text-white" %></button>
+
       </form>
-    </div>
-  </div>
+
 
 <% end %>
 

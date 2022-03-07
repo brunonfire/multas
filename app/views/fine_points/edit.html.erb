@@ -1,6 +1,8 @@
-<h1> <%= editing_name %> </h1>
 
-<%= render 'form', fine_point: @fine_point %>
 
-<%= link_to t("general.buttons.edit"), @fine_point %> |
-<%= link_to t("general.buttons.back"), fine_points_path %>
+<div class="d-flex justify-content-center">
+  <div class="supremo-box-edit">
+    <h2><%= editing_name_fem %></h2>
+    <%= render 'form', fine_point: @fine_point %>
+  </div>
+</div>

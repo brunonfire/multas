@@ -20,6 +20,11 @@ module ApplicationHelper
     t("general.messages.editing", model: t("activerecord.models.#{ model_name }") )
   end
 
+  def editing_name_fem
+    model_name = controller_name.classify.underscore
+    t("general.messages.editing2", model: t("activerecord.models.#{ model_name }") )
+  end
+
   def registering_name
     model_name = controller_name.classify.underscore
     t("general.messages.registering", model: t("activerecord.models.#{ model_name }") )

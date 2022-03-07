@@ -15,7 +15,7 @@
         <th class="text-center"><%= t("activerecord.attributes.user.email") %></th>
         <th class="text-center"><%= t("activerecord.attributes.user.status") %></th>
         <th class="text-center"><%= t("activerecord.attributes.user.user_type") %></th>
-        <th class="text-center"><%= t("activerecord.attributes.user.user_type") %></th>
+        <th class="text-center"><%= t("activerecord.attributes.company_types.branch") %></th>
         <th colspan="3" class="text-center"><%= t("general.actions") %></th>
       </tr>
     </thead>
@@ -26,7 +26,17 @@
 
         <td class="text-center"><%= (user.name).capitalize %></td>
         <td class="text-center"><%= (user.email) %></td>
-        <td class="text-center"><%= enum_to_name(user, :status) %></td>
+        <td class="">
+          <%  if user.status == "enabled" %>
+            <div class="d-flex justify-content-center">
+              <div class="text-center supremo-btn-identified"><%= t("activerecord.attributes.statuses.enabled") %></div>
+            </div>
+          <% else %>
+            <div class="d-flex justify-content-center">
+              <div class="text-center supremo-btn-unidentified"><%= t("activerecord.attributes.statuses.disabled") %></div>
+            </div>
+          <% end %>
+        </td>
         <td class="text-center"><%= enum_to_name(user, :user_type) %></td>
         <td class="text-center"><%= current_user.company.name %></td>
         <td>

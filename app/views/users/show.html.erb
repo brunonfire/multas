@@ -1,39 +1,50 @@
 <div class="d-flex justify-content-center">
-
-  <div class="supremo-box-show-users">
-
+  <div class="supremo-box-show">
     <form>
-      <fieldset disabled>
-        <div class="form-group">
-          <label for="disabledTextInput"><%= t("activerecord.attributes.user.name") %></label>
-          <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @user.name %>">
-        </div>
-      </fieldset>
-      <fieldset disabled>
-        <div class="form-group">
-          <label for="disabledTextInput"><%= t("activerecord.attributes.user.email") %></label>
-          <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @user.email %>">
-        </div>
-      </fieldset>
-      <fieldset disabled>
-        <div class="form-group">
-          <label for="disabledTextInput"><%= t("activerecord.attributes.user.status") %></label>
-          <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= enum_to_name(@user, :status) %>">
-        </div>
-      </fieldset>
-      <fieldset disabled>
-        <div class="form-group">
-          <label for="disabledTextInput"><%= t("activerecord.attributes.user.user_type") %></label>
-          <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= enum_to_name(@user, :user_type) %>">
-        </div>
-      </fieldset>
-        <button type="button" class="btn supremo-btn-gray "><%= link_to t("general.buttons.edit"), edit_user_path, class: "text-white" %></button>
-        <button type="button" class="btn supremo-btn-gray "><%= link_to t("general.buttons.delete"), user_path(@user), method: :delete, class: "text-white" %></button>
-        <button type="button" class="btn supremo-btn-gray "><%= link_to t("general.buttons.back"),  users_path, class: "text-white" %></button>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
+          <fieldset disabled>
+            <div class="form-group">
+              <label for="disabledTextInput"><%= t("activerecord.attributes.user.name") %></label>
+              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @user.name %>">
+            </div>
+          </fieldset>
+          <fieldset disabled>
+            <div class="form-group">
+              <label for="disabledTextInput"><%= t("activerecord.attributes.user.email") %></label>
+              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @user.email %>">
+            </div>
+          </fieldset>
+        </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <fieldset disabled>
+          <div class="form-group">
+            <label for="disabledTextInput"><%= t("activerecord.attributes.user.status") %></label>
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= enum_to_name(@user, :status) %>">
+          </div>
+        </fieldset>
+        <fieldset disabled>
+          <div class="form-group">
+            <label for="disabledTextInput"><%= t("activerecord.attributes.user.user_type") %></label>
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= enum_to_name(@user, :user_type) %>">
+          </div>
+        </fieldset>
+      </div>
+        <div class="pl-15">
+          <button type="button" class="btn supremo-btn-gray no-hover">
+            <%= link_to t("general.buttons.edit"), edit_user_path, class: "text-white" %>
+          </button>
+          <button type="button" class="btn supremo-btn-gray no-hover">
+            <%= link_to t("general.buttons.delete"), user_path(@user), method: :delete, class: "text-white" %>
+          </button>
+          <button type="button" class="btn supremo-btn-gray no-hover">
+            <%= link_to t("general.buttons.back"),  users_path, class: "text-white" %>
+          </button>
+        </div>
+      </div>
     </form>
   </div>
-
 </div>
 
 
