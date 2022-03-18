@@ -38,6 +38,7 @@ pt-BR:
         email: "E-mail"
         status: "Status"
         password: "Senha"
+        password_confirmation: "Repita sua senha"
         user_type: "Tipo de usuário"
         created_at: "Criado em"
         updated_at: "Modificado em"

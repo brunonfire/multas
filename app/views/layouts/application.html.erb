@@ -20,7 +20,7 @@
     <%= render "layouts/navbar_user" %>
   </div>
   <% end %>
-<div class="container-fluid">
+<div class="mid container-fluid">
   <div class="row d-flex justify-content-around">
     <% unless signed_in? %>
       <div class="">
@@ -32,7 +32,7 @@
       <%= render "layouts/sidebar_menu" if user_signed_in? %>
     </div>
 
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mr-15 ">
+    <div class="mid col-lg-12 col-md-12 col-sm-12 col-xs-12 mr-15 ">
       <%= notice %>
       <%= alert %>
       <%= yield %>

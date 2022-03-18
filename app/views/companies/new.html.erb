@@ -1,5 +1,8 @@
-<h1> <%= registering_name %> </h1>
 
-<%= render 'form', company: @company %>
 
-<%= link_to t("general.buttons.back"), companies_path %>
+<div class="d-flex justify-content-center">
+  <div class="supremo-box-edit">
+    <h2><%= registering_name %></h2>
+    <%= render 'form', company: @company %>
+  </div>
+</div>

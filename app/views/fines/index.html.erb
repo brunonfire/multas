@@ -26,7 +26,7 @@
     <% @fines.each do |fine| %>
       <tr>
         <td class="text-center"><%= fine.user.name %></td>
-        <td class="text-center"><%= fine.fine_date %></td>
+        <td class="text-center"><%= l(fine.fine_date, format: :long) %></td>
         <td class="">
           <%  if fine.fine_status == "identified" %>
               <div class="d-flex justify-content-center">

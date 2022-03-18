@@ -75,6 +75,8 @@ class UsersController < ApplicationController
 
   def set_company
     @companies = Company.where(company_type: :main)
+    @branches = Company.where(company_type: :branch)
+    @Companies = Company.all
   end
 
   def set_user

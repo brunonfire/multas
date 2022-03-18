@@ -34,7 +34,9 @@ button:hover {
   text-decoration: none;
   color: white;
 }
-
+body{
+  font-family: 'Montserrat', sans-serif;
+}
 
 
 /* ==================================================================================== */
@@ -120,6 +122,9 @@ button:hover {
 .align-content-center {
   align-content: center;
 }
+.align-stretch {
+  align-items: stretch;
+}
 
 /* ================================================================================== */
 
@@ -160,14 +165,16 @@ button:hover {
   border-radius: 25px;
   background: rgba(40, 199, 111,0.2);
   color: rgb(40, 199, 111);
-  width: 50% ;
+  width: 10vw ;
 }
 .supremo-btn-unidentified {
   border-radius: 25px;
   background: rgba(255, 159, 67,0.2);
   color: rgb(255, 159, 67);
-  width: 50% ;
+  width: 10vw ;
 }
+
+
 .supremo-box-show {
   border-radius: 10px;
   box-shadow: 1px 2px 15px 6px rgba(0,0,0,0.15);
@@ -184,3 +191,33 @@ button:hover {
   width: 830px;
   height: 500px;
 }
+.shadow {
+  box-shadow: 1px 2px 15px 6px rgba(0,0,0,0.15);
+}
+
+/* ==================================media query============================================= */
+
+@media only screen and (max-width: 980px) {
+  /* For mobile phones: */
+  [class*="supremo-btn-"] {
+    width: 15vw;
+  }
+}@media only screen and (max-width: 580px) {
+  /* For mobile phones: */
+  [class*="supremo-btn-"] {
+    width: 20vw;
+  }
+}
+@media screen and (max-width: 700px) {
+  .sidebar-menu {
+    display: none;
+  }
+  .mid {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+
+}
+
+
+/* =========================================================================================== */

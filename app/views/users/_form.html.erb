@@ -2,33 +2,49 @@
 <%= form_for @user do |form| %>
 
       <form>
-          <div class="form-group">
-            <label for=""><%= t("activerecord.attributes.user.name") %></label>
-            <input type="text" id="" class="form-control" value="<%= @user.name %>">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+              <label for=""><%= t("activerecord.attributes.user.name") %></label>
+              <%= form.text_field :name, {class: "form-control"} %>
+            </div>
+
+            <div class="form-group">
+              <label ><%= t("activerecord.attributes.user.password") %></label>
+              <%= form.password_field :password, {placeholder: "*********" , class: "form-control"} %>
+            </div>
+            <div class="form-group">
+              <label ><%= t("activerecord.attributes.user.password_confirmation") %></label>
+              <%= form.password_field :password_confirmation, {placeholder: "*********" , class: "form-control"} %>
+            </div>
+
+            <div class="form-group">
+              <label ><%= t("activerecord.attributes.user.email") %></label>
+              <%= form.email_field :email, {placeholder: "email@email.com" , class: "form-control"} %>
+            </div>
+
+
           </div>
 
-          <div class="form-group">
-            <label ><%= t("activerecord.attributes.user.email") %></label>
-            <input type="text"  class="form-control" value="<%= @user.email %>">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="form-group">
+              <label ><%= t("activerecord.attributes.user.status") %></label>
+              <%= form.select :status, options_for_enum(:statuses), {}, {class: "form-control"} %>
+            </div>
+            <div class="form-group">
+              <label ><%= t("activerecord.attributes.user.user_type") %></label>
+              <%= form.select :user_type , options_for_enum(:user_types), {}, {class: "form-control"} %>
+            </div>
+            <div class="form-group">
+              <label ><%= t("activerecord.attributes.company_types.branch") %></label>
+              <%= form.select  :company_id, options_from_collection_for_select(@companies, :id , :name), {}, {class: "form-control"} %>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label ><%= t("activerecord.attributes.user.status") %></label>
-            <%= form.select :status, options_for_enum(:statuses), {}, {class: "form-control"} %>
-          </div>
-          <div class="form-group">
-            <label ><%= t("activerecord.attributes.user.user_type") %></label>
-            <%= form.select :user_type , options_for_enum(:user_types), {}, {class: "form-control"} %>
-          </div>
-          <div class="form-group">
-            <label ><%= t("activerecord.attributes.company_types.branch") %></label>
-            <%= form.select  :company_id, options_from_collection_for_select(@companies, :id , :name), {}, {class: "form-control"} %>
-          </div>
-
+        </div>
         <%= form.button t("general.save"), type: "submit", class: "btn supremo-btn-gray text-white no-hover-button" %>
-        <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.delete"), users_path(@user), method: :delete, class: "text-white" %></button>
+        <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.delete"), user_path(@user), method: :delete, class: "text-white" %></button>
         <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.back"),  users_path, class: "text-white" %></button>
-
       </form>
 
 

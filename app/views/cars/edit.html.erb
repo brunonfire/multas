@@ -1,6 +1,7 @@
-<h1> <%= editing_name %> </h1>
 
-<%= render 'form', car: @car %>
-
-<%= link_to t("general.buttons.show"), @car %> |
-<%= link_to t("general.buttons.back"), cars_path %>
+<div class="d-flex justify-content-center">
+  <div class="supremo-box-edit">
+    <h2><%= editing_name %></h2>
+    <%= render 'form', car: @car %>
+  </div>
+</div>

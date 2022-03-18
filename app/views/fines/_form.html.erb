@@ -14,7 +14,8 @@
       $(function () {
           $('#datetimepicker4').datetimepicker({
               sideBySide: true,
-              format: 'd/M/YY, H:mm'
+              locale: 'pt-br',
+              format: 'DD/MM/YYYY, HH:mm',
           });
       });
   </script>
@@ -29,12 +30,7 @@
               <div class="form-group">
                 <label for=""><%= t("activerecord.attributes.fine.fine_date") %></label>
                 <div>
-                  <%= form.datetime_field :fine_date %>
-
-                  <div class='col-sm-6'>
-                    <input type='text' class="form-control" id='datetimepicker4' />
-                  </div>
-
+                    <%= form.datetime_select :fine_date %>
                 </div>
               </div>
             <div class="form-group">
@@ -64,10 +60,13 @@
         </div>
 
         <%= form.button t("general.save"), type: "submit", class: "btn supremo-btn-gray text-white no-hover-button" %>
-        <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.delete"), fines_path(@fines), method: :delete, class: "text-white" %></button>
+        <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.delete"), fine_path(@fines), method: :delete, class: "text-white" %></button>
         <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.back"),  fines_path, class: "text-white" %></button>
 
       </form>
+
+
+
 
 
 <% end %>

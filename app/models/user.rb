@@ -7,6 +7,7 @@ class User < ApplicationRecord
   belongs_to :company
 
 
+
   enum status: [:enabled, :disabled]
   enum user_type: [:users, :admin, :manager]
 

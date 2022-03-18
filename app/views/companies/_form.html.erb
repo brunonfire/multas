@@ -11,57 +11,62 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <form>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label><%= t("activerecord.attributes.user.name") %></label>
+          <%= form.text_field :name, {class: "form-control"} %>
+        </div>
+        <div class="form-group">
+          <label><%= t("activerecord.attributes.company.company_type") %></label>
+          <%= form.select :company_type, options_for_enum(:company_types), {}, {class: "form-control"} %>
+        </div>
+        <div class="form-group">
+          <label><%= t("activerecord.attributes.company.cnpj") %></label>
+          <%= form.text_field :cnpj, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label><%= t("activerecord.attributes.company.phone") %></label>
+          <%= form.text_field :phone, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label><%= t("activerecord.attributes.company.address") %></label>
+          <%= form.text_field :address, class: "form-control" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :company_type %>
-    <%= form.select :company_type, options_for_enum(:company_types) %>
-  </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label><%= t("activerecord.attributes.company.number") %></label>
+          <%= form.text_field :number,  {class: "form-control"} %>
+        </div>
+        <div class="form-group">
+          <label><%= t("activerecord.attributes.company.zipcode") %></label>
+          <%= form.text_field :zipcode, {class: "form-control"} %>
+        </div>
+        <div class="form-group">
+          <label><%= t("activerecord.attributes.company.district") %></label>
+          <%= form.text_field :district, {class: "form-control"} %>
+        </div>
+        <div class="form-group">
+          <label><%= t("activerecord.models.state") %></label>
 
-  <div class="field">
-    <%= form.label :cnpj %>
-    <%= form.text_field :cnpj %>
-  </div>
+          <%= form.collection_select :state_id, State.order(:name).where(acronym: ["SC", "PR"]), :id , :name , {} , {class: "form-control"} %>
+        </div>
+        <div class="form-group">
+          <label><%= t("activerecord.models.city") %></label>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
+          <%= form.grouped_collection_select :city_id, State.order(:name).where(acronym: ["SC", "PR"]),:cities , :name, :id, :name,  {include_blank: true} , {class: "form-control"} %>
+        </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number %>
-  </div>
+    <%= form.button t("general.save"), type: "submit", class: "btn supremo-btn-gray text-white no-hover-button" %>
+    <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.delete"), company_path(@companies), method: :delete, class: "text-white" %></button>
+    <button type="button" class="btn supremo-btn-gray no-hover"><%= link_to t("general.buttons.back"),  companies_path, class: "text-white" %></button>
 
-  <div class="field">
-    <%= form.label :zipcode %>
-    <%= form.text_field :zipcode %>
-  </div>
+  </form>
 
-  <div class="field">
-    <%= form.label :district %>
-    <%= form.text_field :district %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city_id %>
-    <%= form.select :city_id, options_from_collection_for_select( @cities, :id , :name) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :state_id %>
-    <%= form.select :state_id, options_from_collection_for_select( @states, :id , :name) %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit t("general.save") %>
-  </div>
 <% end %>

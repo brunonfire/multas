@@ -11,20 +11,20 @@
           </fieldset>
           <fieldset disabled>
             <div class="form-group">
-              <label for="disabledTextInput"><%= t("activerecord.attributes.fine.fine_date") %></label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @fine.fine_date %>">
+              <label><%= t("activerecord.attributes.fine.fine_date") %></label>
+              <input type="text" class="form-control" placeholder="<%= l(@fine.fine_date, format: :long) %>">
             </div>
           </fieldset>
           <fieldset disabled>
             <div class="form-group">
-              <label for="disabledTextInput"><%= t("activerecord.attributes.fine.fine_status") %></label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= enum_to_name(@fine, :fine_status) %>">
+              <label><%= t("activerecord.attributes.fine.fine_status") %></label>
+              <input type="text" class="form-control" placeholder="<%= enum_to_name(@fine, :fine_status) %>">
             </div>
           </fieldset>
           <fieldset disabled>
             <div class="form-group">
-              <label for="disabledTextInput"><%= t("activerecord.attributes.fine.fine_number") %></label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @fine.fine_number %>">
+              <label><%= t("activerecord.attributes.fine.fine_number") %></label>
+              <input type="text" class="form-control" placeholder="<%= @fine.fine_number %>">
             </div>
           </fieldset>
         </div>
@@ -32,20 +32,20 @@
 
           <fieldset disabled>
             <div class="form-group">
-              <label for="disabledTextInput"><%= t("activerecord.attributes.company_types.branch") %></label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @fine.branch&.name %>">
+              <label><%= t("activerecord.attributes.company_types.branch") %></label>
+              <input type="text" class="form-control" placeholder="<%= @fine.branch&.name %>">
             </div>
           </fieldset>
           <fieldset disabled>
             <div class="form-group">
-              <label for="disabledTextInput"><%= t("activerecord.attributes.fine.detran_id") %></label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @fine.detran&.name %>">
+              <label><%= t("activerecord.attributes.fine.detran_id") %></label>
+              <input type="text" class="form-control" placeholder="<%= @fine.detran&.name %>">
             </div>
           </fieldset>
           <fieldset disabled>
             <div class="form-group">
-              <label for="disabledTextInput"><%= t("activerecord.attributes.fine.fine_points") %></label>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="<%= @fine.fine_point&.name %>">
+              <label ><%= t("activerecord.attributes.fine.fine_points") %></label>
+              <input type="text" class="form-control" placeholder="<%= @fine.fine_point&.name %>">
             </div>
           </fieldset>
         </div>
